@@ -6,8 +6,7 @@ import androidx.appcompat.widget.Toolbar
 open class BaseActivity : AppCompatActivity() {
 
     protected fun setupToolbar(
-        toolbar: Toolbar,
-        showBackButton1: Int,
+        toolbar: Toolbar, showBackButton1: Int,
         showBackButton: Boolean = false
     ) {
         setSupportActionBar(toolbar)

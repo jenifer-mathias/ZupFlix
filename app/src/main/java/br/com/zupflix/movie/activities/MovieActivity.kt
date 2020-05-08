@@ -1,12 +1,14 @@
-package br.com.zupflix.movie
+package br.com.zupflix.movie.activities
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import br.com.zupflix.R
 import br.com.zupflix.base.BaseActivity
+import br.com.zupflix.movie.fragments.FavoriteFragment
+import br.com.zupflix.movie.fragments.SearchFragment
+import br.com.zupflix.movie.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_movie.*
-import kotlinx.android.synthetic.main.fragment_third.*
 
 
 class MovieActivity : BaseActivity() {
@@ -19,17 +21,17 @@ class MovieActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
-        val firstFragment = FirstFragment()
-        val secondFragment = SecondFragment()
-        val thirdFragment = ThirdFragment()
+        val homeFragment = HomeFragment()
+        val favoriteFragment = FavoriteFragment()
+        val searchFragment = SearchFragment()
 
-        setCurrentFragment(firstFragment)
+        setCurrentFragment(homeFragment)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.home -> setCurrentFragment(firstFragment)
-                R.id.fav -> setCurrentFragment(secondFragment)
-                R.id.search -> setCurrentFragment(thirdFragment)
+                R.id.home -> setCurrentFragment(homeFragment)
+                R.id.fav -> setCurrentFragment(favoriteFragment)
+                R.id.search -> setCurrentFragment(searchFragment)
             }
             true
         }
