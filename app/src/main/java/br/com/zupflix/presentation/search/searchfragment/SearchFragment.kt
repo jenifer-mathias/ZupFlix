@@ -1,4 +1,4 @@
-package br.com.zupflix.movie.fragments
+package br.com.zupflix.presentation.search.searchfragment
 
 import androidx.fragment.app.Fragment
 import br.com.zupflix.R

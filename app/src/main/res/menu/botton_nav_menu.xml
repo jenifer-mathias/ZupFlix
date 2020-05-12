@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_action_search"
         tools:ignore="MenuTitle" />
 
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_action_profile"
+        tools:ignore="MenuTitle" />
+
 </menu>
