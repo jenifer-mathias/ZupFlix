@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
+import br.com.zupflix.presentation.genres.animation.animationfragmentadapter.AnimationFragmentAdapter
 import br.com.zupflix.presentation.genres.animation.animationfragmentviewmodel.AnimationFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_animation.*
 
