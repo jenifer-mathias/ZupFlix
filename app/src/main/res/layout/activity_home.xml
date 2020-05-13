@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".presentation.home.homeActivity.HomeActivity">
+    tools:context=".presentation.home.homeactivity.HomeActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -39,6 +39,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        android:background="@color/secundaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

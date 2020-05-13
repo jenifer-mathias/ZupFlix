@@ -15,13 +15,12 @@ class HomeFragmentViewModel : ViewModel() {
     val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val repository = MovieRepository()
 
-    fun getMovie(apiKey: String) {
-        repository.getMovies(apiKey).enqueue(object : Callback<MovieResponse> {
+    fun getMovie(apiKey: String, language: String) {
+        repository.getMovies(apiKey, language).enqueue(object : Callback<MovieResponse> {
 
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 when {
                     response.isSuccessful -> {
-
                         response.body()?.let { movieResponse ->
                             movieLiveData.value = movieResponse.movieResults
                         }

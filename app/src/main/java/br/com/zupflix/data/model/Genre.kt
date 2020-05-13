@@ -2,11 +2,11 @@ package br.com.zupflix.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Genre (
-
-        @SerializedName("id")
-        val id: Int
-)
+enum class Genre(val genreId: Int) {
+        ADVENTURE(28),
+        ANIMATION(16),
+        COMEDY(35)
+}
 
 
 

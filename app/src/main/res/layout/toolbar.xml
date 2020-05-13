@@ -3,7 +3,7 @@
     android:id="@+id/toolbarMovie"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
-    android:background="@color/colorBackground">
+    android:background="@color/secundaryColor">
 
     <TextView
         android:layout_width="match_parent"

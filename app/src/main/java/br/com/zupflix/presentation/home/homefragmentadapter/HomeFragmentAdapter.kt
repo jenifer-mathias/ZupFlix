@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.homeFragmentAdapter
+package br.com.zupflix.presentation.home.homefragmentadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -27,10 +27,8 @@ class HomeFragmentAdapter(
         holder.bind(movies[position])
     }
 
-    class HomeAdapterViewHolder(
-        itemView: View,
-        private val itemClickListener: (movieResult: MovieResults) -> Unit
-    ) : RecyclerView.ViewHolder(itemView) {
+    class HomeAdapterViewHolder(itemView: View,
+        private val itemClickListener: (movieResult: MovieResults) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         private val textNameMovie = itemView.textNameMovie
         private val textVoteAverage = itemView.textVoteAverage

@@ -6,7 +6,7 @@ import retrofit2.Call
 
 class MovieRepository {
 
-    fun getMovies(apiKey: String) : Call<MovieResponse> {
-        return ApiService.service.getMovies(apiKey)
+    fun getMovies(apiKey: String, language: String) : Call<MovieResponse> {
+        return ApiService.service.getMovies(apiKey, language)
     }
 }

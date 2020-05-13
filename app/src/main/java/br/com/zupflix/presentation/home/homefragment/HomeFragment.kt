@@ -2,14 +2,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.presentation.home.homeFragmentAdapter.HomeFragmentAdapter
 import br.com.zupflix.presentation.home.homefragmentviewmodel.HomeFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -28,15 +25,15 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        activity?.let { fragemntActivity ->
-            viewModel.movieLiveData.observe(fragemntActivity, Observer {
+        activity?.let { fragmentActivity ->
+            viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let { movieList ->
                     with(recyclerViewHome) {
-                        layoutManager = GridLayoutManager(fragemntActivity, 2)
+                        layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
                         adapter = HomeFragmentAdapter(movieList) { movie ->
                             Toast.makeText(
-                                fragemntActivity,
+                                fragmentActivity,
                                 "Detalhe do filme ${movie.originalTitle}",
                                 Toast.LENGTH_SHORT
                             ).show()
@@ -47,7 +44,7 @@ class HomeFragment : Fragment() {
             })
         }
 
-        viewModel.getMovie(BuildConfig.API_KEY)
+        viewModel.getMovie(BuildConfig.API_KEY, "pt-BR")
 
     }
 

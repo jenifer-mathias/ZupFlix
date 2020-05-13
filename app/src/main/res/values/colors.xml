@@ -3,6 +3,6 @@
     <color name="colorAccent">#bc275e</color>
     <color name="colorBackground">#000000</color>
     <color name="colorTitles">#FFFFFF</color>
-    <color name="secundaryColor">#202125</color>
+    <color name="secundaryColor">#080808</color>
     <color name="colorDrawable">#EF3709</color>
 </resources>

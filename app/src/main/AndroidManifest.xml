@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="br.com.zupflix.presentation.base.BaseActivity"></activity>
-        <activity android:name="br.com.zupflix.presentation.home.homeActivity.HomeActivity">
+        <activity android:name="br.com.zupflix.presentation.home.homeactivity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".presentation.home.homeActivity.HomeActivity">
+    tools:context=".presentation.home.homeactivity.HomeActivity">
 
     <TextView
         android:id="@+id/profile"

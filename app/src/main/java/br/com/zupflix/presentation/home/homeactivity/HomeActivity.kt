@@ -1,9 +1,9 @@
-package br.com.zupflix.presentation.home.homeActivity
+package br.com.zupflix.presentation.home.homeactivity
 
 import android.os.Bundle
 import br.com.zupflix.R
 import br.com.zupflix.presentation.base.BaseActivity
-import br.com.zupflix.presentation.home.homepageadapter.HomePagerAdapter
+import br.com.zupflix.presentation.home.homepageradapter.HomePagerAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
