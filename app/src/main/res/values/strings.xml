@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ZupFlix</string>
     <string name="toolbar_name">ZUPFLIX</string>
+    <string name="realizarLogin">Ainda não possui um login? </string>
+    <string name="cadastro">Cadastre-se agora. </string>
+    <string name="cadastroNovoUsuario">Cadastro de novo usuário </string>
+    <string name="logar">Já possui uma conta? </string>
 </resources>

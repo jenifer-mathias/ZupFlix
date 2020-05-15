@@ -6,7 +6,7 @@ import retrofit2.Call
 
 class MovieRepository {
 
-    fun getMovies(apiKey: String, language: String) : Call<MovieResponse> {
-        return ApiService.service.getMovies(apiKey, language)
+    fun getMoviesByGenres(apiKey: String, language: String, includeAdult: Boolean, withGenres: Int) : Call<MovieResponse> {
+        return ApiService.service.getMoviesByGenres(apiKey, language, includeAdult, withGenres)
     }
 }
