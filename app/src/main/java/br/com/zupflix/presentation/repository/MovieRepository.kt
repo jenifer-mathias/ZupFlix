@@ -1,6 +1,6 @@
 package br.com.zupflix.presentation.repository
 
-import br.com.zupflix.data.ApiService
+import br.com.zupflix.data.services.ApiService
 import br.com.zupflix.data.response.MovieResponse
 import retrofit2.Call
 

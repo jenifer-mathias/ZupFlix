@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/edtEmailLogin"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.301" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/edtPasswordLogin"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
@@ -49,10 +49,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailLogin" />
 
     <Button
-        android:id="@+id/buttonEntrar"
+        android:id="@+id/buttonLogin"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
@@ -61,41 +61,26 @@
         android:text="Entrar"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/edtPasswordLogin"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/edtPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordLogin"
         app:layout_constraintVertical_bias="0.005" />
 
     <TextView
-        android:id="@+id/realizarLogin"
-        android:layout_width="174dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:gravity="center"
-        android:text="@string/realizarLogin"
-        app:layout_constraintBottom_toBottomOf="@+id/cadastrarAgora"
-        app:layout_constraintEnd_toStartOf="@+id/cadastrarAgora"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cadastrarAgora"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/cadastrarAgora"
-        android:layout_width="136dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
+        android:id="@+id/txtRegisterNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/botao_cadastro"
         android:text="@string/cadastro"
         android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/realizarLogin"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEntrar"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintHorizontal_bias="0.498"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+        app:layout_constraintVertical_bias="0.458" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.favorite.favoritefragment
+package br.com.zupflix.presentation.home.favorite.favoritefragment
 
 import androidx.fragment.app.Fragment
 import br.com.zupflix.R

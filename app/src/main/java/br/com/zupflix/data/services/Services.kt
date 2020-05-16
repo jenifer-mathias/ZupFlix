@@ -1,4 +1,4 @@
-package br.com.zupflix.data
+package br.com.zupflix.data.services
 
 
 import br.com.zupflix.data.response.MovieResponse

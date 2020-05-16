@@ -1,4 +1,4 @@
-package br.com.zupflix.data
+package br.com.zupflix.data.services
 
 import br.com.zupflix.BuildConfig
 import com.google.gson.GsonBuilder
@@ -15,6 +15,5 @@ object ApiService {
             .build()
     }
 
-    val service: Services = initRetrofit().create(
-        Services::class.java)
+    val service: Services = initRetrofit().create(Services::class.java)
 }

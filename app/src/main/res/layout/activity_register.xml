@@ -24,15 +24,15 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:text="@string/cadastroNovoUsuario"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintBottom_toTopOf="@+id/edtNameRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.678" />
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/edtNameRegister"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
@@ -46,10 +46,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.212" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/edtEmailRegister"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="3dp"
@@ -57,14 +57,14 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="@+id/edtNameRegister"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintStart_toStartOf="@+id/edtNameRegister"
+        app:layout_constraintTop_toBottomOf="@+id/edtNameRegister"
         app:layout_constraintVertical_bias="0.031" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/edtPasswordRegister"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="3dp"
@@ -72,28 +72,28 @@
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/edtEmailRegister"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintStart_toStartOf="@+id/edtEmailRegister"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister"
         app:layout_constraintVertical_bias="0.038" />
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/edtPhoneRegister"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/borda_arredondada"
         android:hint="Número de celular"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/edtPasswordRegister"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/edtPasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordRegister"
         app:layout_constraintVertical_bias="0.046" />
 
     <Button
-        android:id="@+id/buttonCadastrar"
+        android:id="@+id/buttonRegister"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="3dp"
@@ -101,40 +101,11 @@
         android:text="Cadastrar"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="@+id/edtPhoneRegister"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/phone"
-        app:layout_constraintTop_toBottomOf="@+id/phone"
+        app:layout_constraintStart_toStartOf="@+id/edtPhoneRegister"
+        app:layout_constraintTop_toBottomOf="@+id/edtPhoneRegister"
         app:layout_constraintVertical_bias="0.063" />
-
-    <TextView
-        android:id="@+id/possuiConta"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/logar"
-        app:layout_constraintBottom_toBottomOf="@+id/entrar"
-        app:layout_constraintEnd_toStartOf="@+id/entrar"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/entrar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/entrar"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="3dp"
-        android:background="@drawable/botao_cadastro"
-        android:text="Entrar"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.656"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastrar"
-        app:layout_constraintVertical_bias="0.218" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
