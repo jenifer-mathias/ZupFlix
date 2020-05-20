@@ -6,7 +6,7 @@
             <solid android:color="@color/colorBackground"/> <!-- cor do sólido -->
             <corners android:radius="5dp"/> <!-- valor do arredondamento das bordas -->
             <stroke android:width="2dp" android:color="#575656" />
-            <padding android:bottom="8dp" android:left="8dp" android:right="8dp" android:top="8dp"/>
+            <padding android:bottom="10dp" android:left="8dp" android:right="8dp" android:top="10dp"/>
         </shape>
     </item>
 

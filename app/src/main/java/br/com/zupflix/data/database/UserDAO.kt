@@ -15,4 +15,7 @@ interface UserDAO {
 
     @Query("SELECT * FROM user WHERE email = :email AND password = :password")
     fun getUser(email: String, password: String) : LiveData<User>
+
+    @Query("SELECT * FROM user WHERE email = :email")
+    fun getUserByEmail(email: String) : LiveData<User>
 }

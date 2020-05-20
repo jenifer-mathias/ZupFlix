@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/bthome"
         android:icon="@drawable/ic_action_home"
         tools:ignore="MenuTitle" />
 
     <item
-        android:id="@+id/fav"
+        android:id="@+id/btFavorite"
         android:icon="@drawable/ic_action_fav"
         tools:ignore="MenuTitle" />
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/btSearch"
         android:icon="@drawable/ic_action_search"
         tools:ignore="MenuTitle" />
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/btProfile"
         android:icon="@drawable/ic_action_profile"
         tools:ignore="MenuTitle" />
 

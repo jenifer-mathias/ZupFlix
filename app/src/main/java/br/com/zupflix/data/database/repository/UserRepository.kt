@@ -18,5 +18,6 @@ class UserRepository(context: Context) {
 
     fun getUserDB(email: String, password: String): LiveData<User> = userDAO.getUser(email, password)
 
+    fun getUserByEmail(email: String) : LiveData<User> = userDAO.getUserByEmail(email)
 
 }

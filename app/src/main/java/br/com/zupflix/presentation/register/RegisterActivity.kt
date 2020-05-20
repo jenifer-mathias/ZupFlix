@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -31,8 +32,8 @@ class RegisterActivity : AppCompatActivity() {
 
     fun register() {
         buttonRegister.setOnClickListener {
-                when (isValid()) {
-                    0 -> Toast.makeText(this@RegisterActivity, "Preencha os campos nome, email e senha para se cadastrar no aplicativo", Toast.LENGTH_SHORT).show()
+                when (viewModel.isValid(edtNameRegister, edtEmailRegister, edtPasswordRegister)) {
+                    0 -> Toast.makeText(this@RegisterActivity, "Preencha todos os campos para se cadastrar no aplicativo", Toast.LENGTH_SHORT).show()
                     1 -> Toast.makeText(this@RegisterActivity, "Preencha o campo nome", Toast.LENGTH_SHORT).show()
                     2 -> Toast.makeText(this@RegisterActivity, "Preencha corretamente o campo email", Toast.LENGTH_SHORT).show()
                     3 -> Toast.makeText(this@RegisterActivity, "Preencha o campo senha", Toast.LENGTH_SHORT).show()
@@ -43,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                                 edtEmailRegister.text.toString(),
                                 edtNameRegister.text.toString(),
                                 edtPasswordRegister.text.toString(),
-                                edtPhoneRegister.text.toString()
+                                viewModel.verifyPhoneNumber(edtPhoneRegister)
                             )
                         )
                     }
@@ -53,17 +54,4 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun isValid(): Int {
-        return if (TextUtils.isEmpty(edtNameRegister.text.toString()) && TextUtils.isEmpty(edtEmailRegister.text.toString()) && TextUtils.isEmpty(edtPasswordRegister.text.toString())) {
-            return 0
-        } else if (TextUtils.isEmpty(edtNameRegister.text.toString())) {
-            return 1
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmailRegister.text.toString()).matches() || TextUtils.isEmpty(edtEmailRegister.text.toString())) {
-            return 2
-        } else if (TextUtils.isEmpty(edtPasswordRegister.text.toString())) {
-            return 3
-    } else -1
-}
-
 }
