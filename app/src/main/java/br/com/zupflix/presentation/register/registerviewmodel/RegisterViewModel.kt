@@ -1,16 +1,14 @@
-package br.com.zupflix.presentation.register.registeractivityviewmodel
+package br.com.zupflix.presentation.register.registerviewmodel
 
 import android.app.Application
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.EditText
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import br.com.zupflix.data.database.model.User
 import br.com.zupflix.data.database.repository.UserRepository
-import kotlinx.android.synthetic.main.activity_register.*
 
-class RegisterActivityViewModel(application: Application): AndroidViewModel(application) {
+class RegisterViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository = UserRepository(getApplication())
 

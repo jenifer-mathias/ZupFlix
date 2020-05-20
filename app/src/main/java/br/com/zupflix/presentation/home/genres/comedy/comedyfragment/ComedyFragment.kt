@@ -10,14 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.presentation.home.genres.comedy.comedyfragmentadapter.ComedyFragmentAdapter
-import br.com.zupflix.presentation.home.genres.comedy.comedyfragmentviewmodel.ComedyFragmentViewModel
+import br.com.zupflix.presentation.home.genres.comedy.comedyadapter.ComedyAdapter
+import br.com.zupflix.presentation.home.genres.comedy.comedyviewmodel.ComedyViewModel
 import kotlinx.android.synthetic.main.fragment_comedy.*
 
 class ComedyFragment : Fragment() {
 
-    private val viewModel: ComedyFragmentViewModel by lazy {
-        ViewModelProvider(this).get(ComedyFragmentViewModel::class.java)
+    private val viewModel: ComedyViewModel by lazy {
+        ViewModelProvider(this).get(ComedyViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -35,7 +35,7 @@ class ComedyFragment : Fragment() {
                     with(recyclerViewComedy) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = ComedyFragmentAdapter(movieList)
+                        adapter = ComedyAdapter(movieList)
                     }
                 }
 

@@ -2,25 +2,21 @@ package br.com.zupflix.presentation.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
-import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.zupflix.R
 import br.com.zupflix.data.database.model.User
 import br.com.zupflix.presentation.login.LoginActivity
-import br.com.zupflix.presentation.register.registeractivityviewmodel.RegisterActivityViewModel
+import br.com.zupflix.presentation.register.registerviewmodel.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
-    private val viewModel: RegisterActivityViewModel by lazy {
-        ViewModelProvider(this).get(RegisterActivityViewModel::class.java)
+    private val viewModel: RegisterViewModel by lazy {
+        ViewModelProvider(this).get(RegisterViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

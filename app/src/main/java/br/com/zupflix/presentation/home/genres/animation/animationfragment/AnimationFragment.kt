@@ -10,14 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.presentation.home.genres.animation.animationfragmentadapter.AnimationFragmentAdapter
-import br.com.zupflix.presentation.home.genres.animation.animationfragmentviewmodel.AnimationFragmentViewModel
+import br.com.zupflix.presentation.home.genres.animation.animationadapter.AnimationAdapter
+import br.com.zupflix.presentation.home.genres.animation.animationviewmodel.AnimationViewModel
 import kotlinx.android.synthetic.main.fragment_animation.*
 
 class AnimationFragment : Fragment() {
 
-    private val viewModel: AnimationFragmentViewModel by lazy {
-        ViewModelProvider(this).get(AnimationFragmentViewModel::class.java)
+    private val viewModel: AnimationViewModel by lazy {
+        ViewModelProvider(this).get(AnimationViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -34,7 +34,7 @@ class AnimationFragment : Fragment() {
                     with(recyclerViewAnimation) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = AnimationFragmentAdapter(movieList)
+                        adapter = AnimationAdapter(movieList)
                     }
                 }
 

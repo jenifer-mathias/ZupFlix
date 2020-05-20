@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.genres.action.actionfragmentadapter
+package br.com.zupflix.presentation.home.genres.comedy.comedyadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,21 +10,21 @@ import br.com.zupflix.data.response.MovieResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class ActionFragmentAdapter(val movies: List<MovieResults>)
-    : RecyclerView.Adapter<ActionFragmentAdapter.ActionAdapterViewHolder>() {
+class ComedyAdapter(val movies: List<MovieResults>)
+    : RecyclerView.Adapter<ComedyAdapter.AdventureAdapterViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActionAdapterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return ActionAdapterViewHolder(itemView)
+        return AdventureAdapterViewHolder(itemView)
     }
 
     override fun getItemCount() = movies.count()
 
-    override fun onBindViewHolder(holder: ActionAdapterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdventureAdapterViewHolder, position: Int) {
         holder.bind(movies[position])
     }
 
-    class ActionAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class AdventureAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
         private val textVoteAverage = itemView.textVoteAverage
         private val imageViewMovie = itemView.imageViewMovie

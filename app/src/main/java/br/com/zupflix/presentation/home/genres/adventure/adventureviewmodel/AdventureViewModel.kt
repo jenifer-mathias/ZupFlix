@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.genres.comedy.comedyfragmentviewmodel
+package br.com.zupflix.presentation.home.genres.adventure.adventureviewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ComedyFragmentViewModel : ViewModel() {
+class AdventureViewModel : ViewModel() {
 
     val movieMovieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val repository = MovieRepository()
@@ -38,7 +38,7 @@ class ComedyFragmentViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.d(ComedyFragmentViewModel::class.java.simpleName, "ERROR: ${t.message}")
+                    Log.d(AdventureViewModel::class.java.simpleName, "ERROR: ${t.message}")
                 }
             })
     }

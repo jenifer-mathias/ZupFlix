@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.genres.adventure.adventurefragmentadapter
+package br.com.zupflix.presentation.home.search.searchadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,32 +6,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.data.response.MovieResults
+import br.com.zupflix.data.response.SearchMovieResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class AdventureFragmentAdapter(val movies: List<MovieResults>)
-    : RecyclerView.Adapter<AdventureFragmentAdapter.AdventureAdapterViewHolder>() {
+class SearchAdapter(val searchMovies: List<SearchMovieResults>)
+    : RecyclerView.Adapter<SearchAdapter.SearchAdapterViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return AdventureAdapterViewHolder(itemView)
+        return SearchAdapterViewHolder(itemView)
     }
 
-    override fun getItemCount() = movies.count()
+    override fun getItemCount() = searchMovies.count()
 
-    override fun onBindViewHolder(holder: AdventureAdapterViewHolder, position: Int) {
-        holder.bind(movies[position])
+    override fun onBindViewHolder(holder: SearchAdapterViewHolder, position: Int) {
+        holder.bind(searchMovies[position])
     }
 
-    class AdventureAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SearchAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
         private val textVoteAverage = itemView.textVoteAverage
         private val imageViewMovie = itemView.imageViewMovie
         private val textReleaseDate = itemView.textReleaseDate
         private val picasso = Picasso.get()
 
-        fun bind(movie: MovieResults) {
+        fun bind(movie: SearchMovieResults) {
             textNameMovie.text = movie.originalTitle
             textVoteAverage.text = movie.voteAverage.toString()
             textReleaseDate.text = movie.releaseDate

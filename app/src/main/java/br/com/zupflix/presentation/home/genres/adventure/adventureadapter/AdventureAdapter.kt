@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.genres.animation.animationfragmentadapter
+package br.com.zupflix.presentation.home.genres.adventure.adventureadapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +10,8 @@ import br.com.zupflix.data.response.MovieResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class AnimationFragmentAdapter(val movies: List<MovieResults>)
-    : RecyclerView.Adapter<AnimationFragmentAdapter.AdventureAdapterViewHolder>() {
+class AdventureAdapter(val movies: List<MovieResults>)
+    : RecyclerView.Adapter<AdventureAdapter.AdventureAdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)

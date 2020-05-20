@@ -1,8 +1,6 @@
 package br.com.zupflix.presentation.login
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,20 +9,22 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zupflix.R
 import br.com.zupflix.data.database.SharedPreference
 import br.com.zupflix.presentation.home.homeactivity.HomeActivity
-import br.com.zupflix.presentation.login.loginactivityviewmodel.LoginActivityViewModel
+import br.com.zupflix.presentation.login.loginviewmodel.LoginViewModel
 import br.com.zupflix.presentation.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel: LoginActivityViewModel by lazy {
-        ViewModelProvider(this).get(LoginActivityViewModel::class.java)
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        setupToolbar(toolbar, R.string.txt_toolbar_name, true)
 
         val sharedPreference = SharedPreference(this)
         sharedPreference.getData("USER")?.let { email ->

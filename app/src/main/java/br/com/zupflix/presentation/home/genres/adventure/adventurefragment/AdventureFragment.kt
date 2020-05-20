@@ -10,14 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.presentation.home.genres.adventure.adventurefragmentadapter.AdventureFragmentAdapter
-import br.com.zupflix.presentation.home.genres.adventure.adventurefragmentviewmodel.AdventureFragmentViewModel
+import br.com.zupflix.presentation.home.genres.adventure.adventureadapter.AdventureAdapter
+import br.com.zupflix.presentation.home.genres.adventure.adventureviewmodel.AdventureViewModel
 import kotlinx.android.synthetic.main.fragment_adventure.*
 
 class AdventureFragment : Fragment() {
 
-    private val viewModel: AdventureFragmentViewModel by lazy {
-        ViewModelProvider(this).get(AdventureFragmentViewModel::class.java)
+    private val viewModel: AdventureViewModel by lazy {
+        ViewModelProvider(this).get(AdventureViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -34,7 +34,7 @@ class AdventureFragment : Fragment() {
                     with(recyclerViewAdventure) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = AdventureFragmentAdapter(movieList)
+                        adapter = AdventureAdapter(movieList)
                     }
                 }
 

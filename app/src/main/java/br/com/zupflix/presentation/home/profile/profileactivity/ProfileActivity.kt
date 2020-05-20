@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zupflix.R
 import br.com.zupflix.data.database.SharedPreference
 import br.com.zupflix.presentation.base.BaseActivity
-import br.com.zupflix.presentation.home.profile.viewmodel.ProfileViewModel
+import br.com.zupflix.presentation.home.profile.profileviewmodel.ProfileViewModel
 import br.com.zupflix.presentation.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.toolbar.*

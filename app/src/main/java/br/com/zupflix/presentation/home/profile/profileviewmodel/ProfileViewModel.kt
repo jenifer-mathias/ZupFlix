@@ -1,4 +1,4 @@
-package br.com.zupflix.presentation.home.profile.viewmodel
+package br.com.zupflix.presentation.home.profile.profileviewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
