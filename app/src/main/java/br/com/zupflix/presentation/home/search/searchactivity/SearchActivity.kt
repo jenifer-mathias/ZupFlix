@@ -27,7 +27,7 @@ class SearchActivity : BaseActivity() {
         viewModel.movieMovieLiveData.observe(this, Observer { searchMovieResults ->
             searchMovieResults?.let { movieList ->
                 with(recyclerViewSearch) {
-                    layoutManager = GridLayoutManager(this@SearchActivity, 1)
+                    layoutManager = GridLayoutManager(this@SearchActivity, 2)
                     setHasFixedSize(true)
                     adapter = SearchAdapter(movieList)
                 }
