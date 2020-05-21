@@ -15,19 +15,13 @@ class SearchViewModel : ViewModel() {
     val movieMovieLiveData: MutableLiveData<List<SearchMovieResults>> = MutableLiveData()
     val repository = SearchMovieRepository()
 
-    fun searchMovies(
-        apiKey: String,
-        language: String,
-        query: String,
-        includeAdult: Boolean
-    ) {
-        repository.searchMovies(apiKey, language, query, includeAdult)
+    fun searchMovies(query: String, apiKey: String, language: String, includeAdult: Boolean) {
+
+        repository.searchMovies(query, apiKey, language, includeAdult)
             .enqueue(object : Callback<SearchMovieResponse> {
 
-                override fun onResponse(
-                    call: Call<SearchMovieResponse>,
-                    response: Response<SearchMovieResponse>
-                ) {
+                override fun onResponse(call: Call<SearchMovieResponse>,
+                    response: Response<SearchMovieResponse>) {
                     when {
                         response.isSuccessful -> {
                             response.body()?.let { movieResponse ->

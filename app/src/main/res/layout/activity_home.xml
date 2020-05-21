@@ -8,7 +8,6 @@
     tools:context=".presentation.home.homeactivity.HomeActivity">
 
     <include
-        android:id="@+id/toolbar"
         layout="@layout/toolbar"
         app:layout_constraintBottom_toTopOf="@+id/viewPagerMain"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMovie" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerMain"

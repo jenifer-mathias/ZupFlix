@@ -6,7 +6,7 @@ import retrofit2.Call
 
 class SearchMovieRepository {
 
-    fun searchMovies(apiKey: String, language: String, query: String, includeAdult: Boolean) : Call<SearchMovieResponse> {
-        return ApiService.service.searchMovies(apiKey, language, query, includeAdult)
+    fun searchMovies(query: String, apiKey: String, language: String, includeAdult: Boolean) : Call<SearchMovieResponse> {
+        return ApiService.service.searchMovies(query, apiKey, language, includeAdult)
     }
 }

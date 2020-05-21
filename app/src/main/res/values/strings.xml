@@ -6,4 +6,6 @@
     <string name="logar">Já possui uma conta? Entrar </string>
     <string name="txt_perfil">MEU PERFIL </string>
     <string name="btn_logout">Logout</string>
+    <string name="btn_register">Cadastrar</string>
+    <string name="search">Pesquisa</string>
 </resources>

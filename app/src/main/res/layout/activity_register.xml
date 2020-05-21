@@ -8,7 +8,6 @@
     tools:context=".presentation.register.RegisterActivity">
 
     <include
-        android:id="@+id/toolbar"
         layout="@layout/toolbar"
         app:layout_constraintBottom_toTopOf="@+id/viewPagerMain"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,18 +22,19 @@
         android:layout_marginLeft="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
+        android:layout_marginBottom="60dp"
         android:text="@string/cadastroNovoUsuario"
         app:layout_constraintBottom_toTopOf="@+id/edtNameRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.678" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtNameRegister"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginEnd="30dp"
@@ -45,13 +45,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMovie"
         app:layout_constraintVertical_bias="0.311" />
 
     <EditText
         android:id="@+id/edtEmailRegister"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/borda_arredondada"
         android:hint="Email"
@@ -66,7 +68,9 @@
     <EditText
         android:id="@+id/edtPasswordRegister"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/borda_arredondada"
         android:hint="Senha"
@@ -81,7 +85,9 @@
     <EditText
         android:id="@+id/edtPhoneRegister"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/borda_arredondada"
         android:hint="Número de celular"
@@ -95,10 +101,10 @@
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:background="@drawable/button"
-        android:text="Cadastrar"
+        android:text="@string/btn_register"
         android:textAllCaps="false"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"

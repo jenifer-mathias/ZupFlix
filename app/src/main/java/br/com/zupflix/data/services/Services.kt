@@ -16,11 +16,11 @@ interface Services {
                           @Query("with_genres") withGenres: Int): Call<MovieResponse>
 
 
-    @GET("/search/movie")
-    fun searchMovies(@Query("api_key") apiKey: String,
-                    @Query("language") language: String,
-                    @Query("query") query: String,
-                    @Query("include_adult") includeAdult: Boolean): Call<SearchMovieResponse>
+    @GET("search/movie")
+    fun searchMovies(@Query("query") query: String,
+                     @Query("api_key") apiKey: String,
+                     @Query("language") language: String,
+                     @Query("include_adult") includeAdult: Boolean): Call<SearchMovieResponse>
 
 }
 
