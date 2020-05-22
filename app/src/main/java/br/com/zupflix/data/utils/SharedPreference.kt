@@ -1,4 +1,4 @@
-package br.com.zupflix.data.database
+package br.com.zupflix.data.utils
 
 import android.content.Context
 import android.content.SharedPreferences

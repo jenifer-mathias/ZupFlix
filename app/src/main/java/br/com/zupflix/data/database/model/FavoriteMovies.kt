@@ -13,15 +13,15 @@ data class FavoriteMovies (
     @ColumnInfo(name = "id")
     val id: Int,
     @ColumnInfo(name = "original_title")
-    val name: String,
+    val originalTitle: String,
     @ColumnInfo(name = "vote_average")
     val voteAverage: Double,
     @ColumnInfo(name = "genre_ids")
-    val genreId: List<Int>,
+    val genreIds: List<Int>,
     @ColumnInfo(name = "overview")
     val overview: String,
     @ColumnInfo(name = "poster_path")
     val posterPath: String,
     @ColumnInfo(name = "release_date")
-    val date: String
+    val releaseDate: String
 ) : Parcelable

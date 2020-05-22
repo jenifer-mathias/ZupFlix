@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.zupflix.data.response.MovieResponse
-import br.com.zupflix.data.response.MovieResults
+import br.com.zupflix.data.results.MovieResults
 import br.com.zupflix.presentation.repository.MovieRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class ActionViewModel : ViewModel() {
 
-    val movieMovieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
+    val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val repository = MovieRepository()
 
     fun getMoviesByGenres(
@@ -31,7 +31,7 @@ class ActionViewModel : ViewModel() {
                     when {
                         response.isSuccessful -> {
                             response.body()?.let { genreResponse ->
-                                movieMovieLiveData.value = genreResponse.genreResults
+                                movieLiveData.value = genreResponse.genreResults
                             }
                         }
                     }

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
-import br.com.zupflix.data.response.MovieResults
+import br.com.zupflix.data.results.MovieResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 

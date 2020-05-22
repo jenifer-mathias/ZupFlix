@@ -1,4 +1,4 @@
-package br.com.zupflix.data.database
+package br.com.zupflix.data.utils
 
 import android.content.Context
 import androidx.room.Database
@@ -11,6 +11,7 @@ import br.com.zupflix.data.database.converters.Converters
 import br.com.zupflix.data.database.model.FavoriteMovieDAO
 import br.com.zupflix.data.database.model.FavoriteMovies
 import br.com.zupflix.data.database.model.User
+import br.com.zupflix.data.database.model.UserDAO
 
 @Database(entities = arrayOf(User::class, FavoriteMovies::class), version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
@@ -31,7 +32,8 @@ abstract class ZupFlixDB : RoomDatabase() {
         }
 
         fun getDataBase(context: Context) : ZupFlixDB {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }

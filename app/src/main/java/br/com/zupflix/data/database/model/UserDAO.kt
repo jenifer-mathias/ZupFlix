@@ -1,4 +1,4 @@
-package br.com.zupflix.data.database
+package br.com.zupflix.data.database.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

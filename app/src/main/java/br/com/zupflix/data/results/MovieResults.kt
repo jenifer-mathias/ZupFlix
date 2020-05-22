@@ -1,4 +1,4 @@
-package br.com.zupflix.data.response
+package br.com.zupflix.data.results
 
 import com.google.gson.annotations.SerializedName
 
