@@ -4,7 +4,7 @@
     package="br.com.zupflix">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.register.RegisterActivity"/>
+        <activity android:name=".presentation.home.favorite.favoriteactivity.FavoriteActivity"></activity>
+        <activity android:name=".presentation.register.RegisterActivity" />
         <activity android:name=".presentation.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +23,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.base.BaseActivity" />
-        <activity android:name=".presentation.home.homeactivity.HomeActivity"/>
-        <activity android:name=".presentation.home.profile.profileactivity.ProfileActivity"
+        <activity android:name=".presentation.home.homeactivity.HomeActivity" />
+        <activity
+            android:name=".presentation.home.profile.profileactivity.ProfileActivity"
             android:parentActivityName=".presentation.home.homeactivity.HomeActivity" />
-        <activity android:name=".presentation.home.search.searchactivity.SearchActivity"
-            android:parentActivityName=".presentation.home.homeactivity.HomeActivity"/>
+        <activity
+            android:name=".presentation.home.search.searchactivity.SearchActivity"
+            android:parentActivityName=".presentation.home.homeactivity.HomeActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
