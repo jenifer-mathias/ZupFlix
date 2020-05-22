@@ -1,5 +1,6 @@
 package br.com.zupflix.presentation.home.profile.profileactivity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -18,6 +19,7 @@ class ProfileActivity : BaseActivity() {
         ViewModelProvider(this).get(ProfileViewModel::class.java)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)

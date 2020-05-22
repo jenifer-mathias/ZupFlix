@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import br.com.zupflix.R
 import br.com.zupflix.presentation.base.BaseActivity
+import br.com.zupflix.presentation.home.favorite.favoriteactivity.FavoriteActivity
 import br.com.zupflix.presentation.home.homepageradapter.HomePagerAdapter
 import br.com.zupflix.presentation.home.profile.profileactivity.ProfileActivity
 import br.com.zupflix.presentation.home.search.searchactivity.SearchActivity
@@ -26,6 +27,10 @@ class HomeActivity : BaseActivity() {
                 }
                 R.id.btSearch -> {
                     startActivity(Intent(this@HomeActivity, SearchActivity::class.java))
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.btFavorite -> {
+                    startActivity(Intent(this@HomeActivity, FavoriteActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> false

@@ -29,7 +29,7 @@ class AnimationFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
-            viewModel.movieMovieLiveData.observe(fragmentActivity, Observer {
+            viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAnimation) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)

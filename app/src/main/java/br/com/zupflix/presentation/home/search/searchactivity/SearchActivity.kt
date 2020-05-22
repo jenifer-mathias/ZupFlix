@@ -22,9 +22,9 @@ class SearchActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        setupToolbar(toolbarMovie, R.string.search, true)
+        setupToolbar(toolbarMovie, R.string.txt_search, true)
 
-        viewModel.movieMovieLiveData.observe(this, Observer { searchMovieResults ->
+        viewModel.movieLiveData.observe(this, Observer { searchMovieResults ->
             searchMovieResults?.let { movieList ->
                 with(recyclerViewSearch) {
                     layoutManager = GridLayoutManager(this@SearchActivity, 2)

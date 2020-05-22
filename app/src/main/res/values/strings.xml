@@ -7,5 +7,6 @@
     <string name="txt_perfil">MEU PERFIL </string>
     <string name="btn_logout">Logout</string>
     <string name="btn_register">Cadastrar</string>
-    <string name="search">Pesquisa</string>
+    <string name="txt_search">PESQUISA</string>
+    <string name="txt_favorite_movies">FILMES FAVORITOS</string>
 </resources>

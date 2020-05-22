@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
+import br.com.zupflix.data.database.model.FavoriteMovies
 import br.com.zupflix.presentation.home.genres.action.actionadapter.ActionAdapter
 import br.com.zupflix.presentation.home.genres.action.actionviewmodel.ActionViewModel
 import kotlinx.android.synthetic.main.fragment_action.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ActionFragment : Fragment() {
 
@@ -29,12 +33,17 @@ class ActionFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
-            viewModel.movieMovieLiveData.observe(fragmentActivity, Observer {
+            viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAction) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = ActionAdapter(movieList)
+                        adapter = ActionAdapter(movieList) {movie ->
+                            GlobalScope.launch {
+                            viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
+                           // Toast.makeText(fragmentActivity, "Filme inserido com sucesso -> ${movie.originalTitle}", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     }
                 }
 

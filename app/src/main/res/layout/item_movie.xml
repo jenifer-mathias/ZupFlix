@@ -46,6 +46,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +65,15 @@
         app:layout_constraintStart_toStartOf="@+id/textNameMovie"
         app:layout_constraintTop_toBottomOf="@+id/textNameMovie"
         tools:text="2019-09-17" />
+
+    <ImageView
+        android:id="@+id/img_favorite_movie"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_favorite_border_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textVoteAverage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textVoteAverage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

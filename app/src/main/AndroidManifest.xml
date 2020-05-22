@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.home.favorite.favoriteactivity.FavoriteActivity"></activity>
+        <activity android:name=".presentation.home.favorite.favoriteactivity.FavoriteActivity"
+            android:parentActivityName=".presentation.home.homeactivity.HomeActivity"/>
         <activity android:name=".presentation.register.RegisterActivity" />
         <activity android:name=".presentation.login.LoginActivity">
             <intent-filter>
