@@ -3,7 +3,7 @@ package br.com.zupflix.data.database.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import br.com.zupflix.data.database.model.UserDAO
-import br.com.zupflix.data.utils.ZupFlixDB
+import br.com.zupflix.data.database.ZupFlixDB
 import br.com.zupflix.data.database.model.User
 
 class UserRepository(context: Context) {

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import br.com.zupflix.data.database.model.FavoriteMovieDAO
 import br.com.zupflix.data.database.model.FavoriteMovies
-import br.com.zupflix.data.utils.ZupFlixDB
+import br.com.zupflix.data.database.ZupFlixDB
 
 class FavoriteMovieRepository(context: Context) {
 
@@ -18,7 +18,7 @@ class FavoriteMovieRepository(context: Context) {
 
     fun getFavoriteMovie() : LiveData<List<FavoriteMovies>> = favoriteMovieDAO.getFavoriteMovie()
 
-    fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) {
+    suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) {
         favoriteMovieDAO.deleteFavoriteMovie(favoriteMovies)
     }
 

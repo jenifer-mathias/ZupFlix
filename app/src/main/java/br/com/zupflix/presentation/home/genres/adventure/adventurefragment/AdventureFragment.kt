@@ -10,9 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
+import br.com.zupflix.data.database.model.FavoriteMovies
 import br.com.zupflix.presentation.home.genres.adventure.adventureadapter.AdventureAdapter
 import br.com.zupflix.presentation.home.genres.adventure.adventureviewmodel.AdventureViewModel
 import kotlinx.android.synthetic.main.fragment_adventure.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class AdventureFragment : Fragment() {
 
@@ -34,10 +37,15 @@ class AdventureFragment : Fragment() {
                     with(recyclerViewAdventure) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = AdventureAdapter(movieList)
+                        adapter = AdventureAdapter(movieList) {movie ->
+                            GlobalScope.launch {
+                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
+                                //Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                            }
+
+                        }
                     }
                 }
-
             })
         }
 

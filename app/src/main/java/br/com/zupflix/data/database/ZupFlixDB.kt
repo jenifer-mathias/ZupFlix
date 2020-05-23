@@ -1,4 +1,4 @@
-package br.com.zupflix.data.utils
+package br.com.zupflix.data.database
 
 import android.content.Context
 import androidx.room.Database

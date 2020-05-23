@@ -10,12 +10,12 @@ import br.com.zupflix.data.results.MovieResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class AnimationAdapter(val movies: List<MovieResults>)
+class AnimationAdapter(val movies: List<MovieResults>, val favoriteClickListener: ((movie: MovieResults) -> Unit))
     : RecyclerView.Adapter<AnimationAdapter.AdventureAdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return AdventureAdapterViewHolder(itemView)
+        return AdventureAdapterViewHolder(itemView, favoriteClickListener)
     }
 
     override fun getItemCount() = movies.count()
@@ -24,11 +24,12 @@ class AnimationAdapter(val movies: List<MovieResults>)
         holder.bind(movies[position])
     }
 
-    class AdventureAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class AdventureAdapterViewHolder(itemView: View,  private val favoriteClickListener: (movie: MovieResults) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
         private val textVoteAverage = itemView.textVoteAverage
         private val imageViewMovie = itemView.imageViewMovie
         private val textReleaseDate = itemView.textReleaseDate
+        private val imageViewFavoriteMovie = itemView.img_favorite_movie
         private val picasso = Picasso.get()
 
         fun bind(movie: MovieResults) {
@@ -39,6 +40,10 @@ class AnimationAdapter(val movies: List<MovieResults>)
             movie.posterPath.let {
                 picasso.load("""${BuildConfig.BASE_URL_IMAGE}${movie.posterPath}""")
                     .into(imageViewMovie)
+            }
+
+            imageViewFavoriteMovie.setOnClickListener {
+                favoriteClickListener.invoke(movie)
             }
         }
     }

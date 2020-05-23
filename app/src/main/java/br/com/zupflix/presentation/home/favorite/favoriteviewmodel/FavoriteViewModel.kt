@@ -14,6 +14,6 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
 
     fun getFavoriteMovie(): LiveData<List<FavoriteMovies>> = repository.getFavoriteMovie()
 
-    fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) = repository.deleteFavoriteMovie(favoriteMovies)
+    suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) = repository.deleteFavoriteMovie(favoriteMovies)
 
 }

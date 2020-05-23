@@ -1,19 +1,26 @@
 package br.com.zupflix.presentation.home.genres.animation.animationviewmodel
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.zupflix.data.database.model.FavoriteMovies
 import br.com.zupflix.data.response.MovieResponse
 import br.com.zupflix.data.results.MovieResults
+import br.com.zupflix.presentation.repository.FavoriteMovieRepository
 import br.com.zupflix.presentation.repository.MovieRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AnimationViewModel : ViewModel() {
+class AnimationViewModel(application : Application) : AndroidViewModel(application) {
 
     val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val repository = MovieRepository()
+    private val favoriteRepository = FavoriteMovieRepository(getApplication())
+
+    suspend fun insertMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.insertMovie(favoriteMovies)
 
     fun getMoviesByGenres(
         apiKey: String,

@@ -13,5 +13,5 @@ interface FavoriteMovieDAO {
     fun getFavoriteMovie() : LiveData<List<FavoriteMovies>>
 
     @Delete
-     fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies)
+     suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies)
 }

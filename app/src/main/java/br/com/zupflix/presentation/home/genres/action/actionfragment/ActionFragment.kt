@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,8 @@ import kotlinx.coroutines.launch
 
 class ActionFragment : Fragment() {
 
+    var listFavoriteMovie = listOf<FavoriteMovies>()
+
     private val viewModel: ActionViewModel by lazy {
         ViewModelProvider(this).get(ActionViewModel::class.java)
     }
@@ -32,17 +35,37 @@ class ActionFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
+
+            viewModel.getFavoriteMovie().observe(fragmentActivity, Observer {listMovie ->
+              listMovie?.let {movies ->
+                  listFavoriteMovie = movies
+              }
+            })
+
+            viewModel.isLoading.observe(fragmentActivity, Observer {
+                if (it) {
+                    progressBar.visibility = View.VISIBLE
+                } else {
+                    progressBar.visibility = View.GONE
+                }
+            })
+
             viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAction) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = ActionAdapter(movieList) {movie ->
+                        adapter = ActionAdapter(movieList, listFavoriteMovie, {movie ->
                             GlobalScope.launch {
-                            viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
-                            //Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
-                        }
+                            Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                        }, {deleteMovie ->
+                            GlobalScope.launch {
+                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, deleteMovie.originalTitle, deleteMovie.voteAverage, deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
+                            }
+                            Toast.makeText(fragmentActivity, "Filme ${deleteMovie.originalTitle} deletado com sucesso", Toast.LENGTH_SHORT).show()
+                        })
                     }
                 }
             })
