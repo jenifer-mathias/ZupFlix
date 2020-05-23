@@ -18,7 +18,6 @@ class ActionViewModel(application : Application) : AndroidViewModel(application)
 
     val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val repository = MovieRepository()
-
     private val favoriteRepository = FavoriteMovieRepository(getApplication())
 
     suspend fun insertMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.insertMovie(favoriteMovies)
