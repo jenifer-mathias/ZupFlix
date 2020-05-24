@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
 import br.com.zupflix.data.database.model.FavoriteMovies
+import br.com.zupflix.data.utils.SharedPreference
 import br.com.zupflix.presentation.home.genres.action.actionadapter.ActionAdapter
 import br.com.zupflix.presentation.home.genres.action.actionviewmodel.ActionViewModel
 import kotlinx.android.synthetic.main.fragment_action.*
@@ -21,6 +22,8 @@ import kotlinx.coroutines.launch
 class ActionFragment : Fragment() {
 
     var listFavoriteMovie = listOf<FavoriteMovies>()
+
+    lateinit var userEmail: String
 
     private val viewModel: ActionViewModel by lazy {
         ViewModelProvider(this).get(ActionViewModel::class.java)
@@ -35,8 +38,12 @@ class ActionFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
+        var sharedPreference = SharedPreference(fragmentActivity)
+            sharedPreference.getData("USER")?.let {email ->
+             userEmail = email
+            }
 
-            viewModel.getFavoriteMovie().observe(fragmentActivity, Observer {listMovie ->
+            viewModel.getFavoriteMovie(userEmail).observe(fragmentActivity, Observer {listMovie ->
               listMovie?.let {movies ->
                   listFavoriteMovie = movies
               }
@@ -57,12 +64,12 @@ class ActionFragment : Fragment() {
                         setHasFixedSize(true)
                         adapter = ActionAdapter(movieList, listFavoriteMovie, {movie ->
                             GlobalScope.launch {
-                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
+                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
                             Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
                         }, {deleteMovie ->
                             GlobalScope.launch {
-                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, deleteMovie.originalTitle, deleteMovie.voteAverage, deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
+                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, userEmail, deleteMovie.originalTitle, deleteMovie.voteAverage, deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
                             }
                             Toast.makeText(fragmentActivity, "Filme ${deleteMovie.originalTitle} deletado com sucesso", Toast.LENGTH_SHORT).show()
                         })

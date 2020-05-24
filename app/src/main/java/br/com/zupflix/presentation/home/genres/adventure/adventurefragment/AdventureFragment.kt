@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
 import br.com.zupflix.data.database.model.FavoriteMovies
+import br.com.zupflix.data.utils.SharedPreference
 import br.com.zupflix.presentation.home.genres.adventure.adventureadapter.AdventureAdapter
 import br.com.zupflix.presentation.home.genres.adventure.adventureviewmodel.AdventureViewModel
 import kotlinx.android.synthetic.main.fragment_adventure.*
@@ -18,6 +20,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AdventureFragment : Fragment() {
+
+    var listFavoriteMovie = listOf<FavoriteMovies>()
+
+    lateinit var userEmail: String
 
     private val viewModel: AdventureViewModel by lazy {
         ViewModelProvider(this).get(AdventureViewModel::class.java)
@@ -32,6 +38,13 @@ class AdventureFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
+            var sharedPreference = SharedPreference(fragmentActivity)
+            sharedPreference.getData("USER")?.let { email ->
+                userEmail = email
+            }
+
+            //////////////////////////////////
+
             viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAdventure) {
@@ -39,10 +52,9 @@ class AdventureFragment : Fragment() {
                         setHasFixedSize(true)
                         adapter = AdventureAdapter(movieList) {movie ->
                             GlobalScope.launch {
-                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
-                                //Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
-
+                                Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

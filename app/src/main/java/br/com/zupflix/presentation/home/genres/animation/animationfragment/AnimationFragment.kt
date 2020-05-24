@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AnimationFragment : Fragment() {
+
+    var listFavoriteMovies = listOf<FavoriteMovies>()
+
+    lateinit var userEmail: String
 
     private val viewModel: AnimationViewModel by lazy {
         ViewModelProvider(this).get(AnimationViewModel::class.java)
@@ -39,9 +44,9 @@ class AnimationFragment : Fragment() {
                         setHasFixedSize(true)
                         adapter = AnimationAdapter(movieList) {movie ->
                             GlobalScope.launch {
-                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
-                                //Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
+                                Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

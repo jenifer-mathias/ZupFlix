@@ -12,6 +12,8 @@ data class FavoriteMovies (
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int,
+    @ColumnInfo(name = "user_email")
+    val userEmail: String,
     @ColumnInfo(name = "original_title")
     val originalTitle: String,
     @ColumnInfo(name = "vote_average")

@@ -26,10 +26,11 @@ class ActionViewModel(application : Application) : AndroidViewModel(application)
 
     suspend fun deleteMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.deleteFavoriteMovie(favoriteMovies)
 
-    fun getFavoriteMovie() : LiveData<List<FavoriteMovies>> = favoriteRepository.getFavoriteMovie()
+    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteRepository.getFavoriteMovie(userEmail)
 
     fun getMoviesByGenres(apiKey: String, language: String, includeAdult: Boolean, withGenres: Int) {
         repository.getMoviesByGenres(apiKey, language, includeAdult, withGenres).enqueue(object : Callback<MovieResponse> {
+
                 override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                     when {
                         response.isSuccessful -> {

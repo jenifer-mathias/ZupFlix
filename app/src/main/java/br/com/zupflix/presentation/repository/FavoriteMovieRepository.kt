@@ -16,7 +16,7 @@ class FavoriteMovieRepository(context: Context) {
         favoriteMovieDAO.insertMovie(favoriteMovies)
     }
 
-    fun getFavoriteMovie() : LiveData<List<FavoriteMovies>> = favoriteMovieDAO.getFavoriteMovie()
+    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteMovieDAO.getFavoriteMovie(userEmail)
 
     suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) {
         favoriteMovieDAO.deleteFavoriteMovie(favoriteMovies)

@@ -1,9 +1,11 @@
 package br.com.zupflix.presentation.home.genres.comedy.comedyfragment
 
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +20,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ComedyFragment : Fragment() {
+
+    var listFavoriteMovie = listOf<FavoriteMovies>()
+
+    lateinit var userEmail: String
 
     private val viewModel: ComedyViewModel by lazy {
         ViewModelProvider(this).get(ComedyViewModel::class.java)
@@ -40,9 +46,9 @@ class ComedyFragment : Fragment() {
                         setHasFixedSize(true)
                         adapter = ComedyAdapter(movieList) {movie ->
                             GlobalScope.launch {
-                                viewModel.insertMovie(FavoriteMovies(movie.id, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
-                                //Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
+                                Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

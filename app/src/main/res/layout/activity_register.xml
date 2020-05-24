@@ -91,7 +91,7 @@
         android:paddingTop="10dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/borda_arredondada"
-        android:hint="Número de celular"
+        android:hint="Número de celular (opcional)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edtPasswordRegister"
         app:layout_constraintHorizontal_bias="0.0"

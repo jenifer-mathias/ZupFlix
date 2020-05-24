@@ -3,6 +3,7 @@ package br.com.zupflix.presentation.home.genres.adventure.adventureviewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.zupflix.data.database.model.FavoriteMovies
@@ -22,12 +23,11 @@ class AdventureViewModel(application : Application) : AndroidViewModel(applicati
 
     suspend fun insertMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.insertMovie(favoriteMovies)
 
-    fun getMoviesByGenres(
-        apiKey: String,
-        language: String,
-        includeAdult: Boolean,
-        withGenres: Int
-    ) {
+    suspend fun deleteMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.deleteFavoriteMovie(favoriteMovies)
+
+    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteRepository.getFavoriteMovie(userEmail)
+
+    fun getMoviesByGenres(apiKey: String, language: String, includeAdult: Boolean, withGenres: Int) {
         repository.getMoviesByGenres(apiKey, language, includeAdult, withGenres)
             .enqueue(object : Callback<MovieResponse> {
 
