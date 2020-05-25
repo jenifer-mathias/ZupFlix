@@ -10,7 +10,6 @@ import br.com.zupflix.presentation.base.BaseActivity
 import br.com.zupflix.presentation.home.favorite.favoriteadapter.FavoriteAdapter
 import br.com.zupflix.presentation.home.favorite.favoriteviewmodel.FavoriteViewModel
 import kotlinx.android.synthetic.main.activity_favorite.*
-import kotlinx.android.synthetic.main.item_movie.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class FavoriteActivity : BaseActivity() {

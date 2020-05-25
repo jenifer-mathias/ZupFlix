@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zupflix.BuildConfig
 import br.com.zupflix.R
 import br.com.zupflix.data.database.model.FavoriteMovies
+import br.com.zupflix.data.utils.SharedPreference
 import br.com.zupflix.presentation.home.genres.animation.animationadapter.AnimationAdapter
 import br.com.zupflix.presentation.home.genres.animation.animationviewmodel.AnimationViewModel
+import kotlinx.android.synthetic.main.fragment_action.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -37,17 +39,41 @@ class AnimationFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
+            var sharedPreference = SharedPreference(fragmentActivity)
+            sharedPreference.getData("USER")?.let { email ->
+                userEmail = email
+            }
+
+            viewModel.getFavoriteMovie(userEmail).observe(fragmentActivity, Observer { listMovie ->
+                listMovie?.let {movies ->
+                    listFavoriteMovies = movies
+                }
+            })
+
+            viewModel.isLoading.observe(fragmentActivity, Observer {
+                if (it) {
+                    progressBar.visibility = View.VISIBLE
+                } else {
+                    progressBar.visibility = View.GONE
+                }
+            })
+
             viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAnimation) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = AnimationAdapter(movieList) {movie ->
+                        adapter = AnimationAdapter(movieList, listFavoriteMovies, {movie ->
                             GlobalScope.launch {
                                 viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
-                                Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
-                        }
+                            Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
+                        }, {deleteMovie ->
+                            GlobalScope.launch {
+                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, userEmail, deleteMovie.originalTitle, deleteMovie.voteAverage, deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
+                            }
+                            Toast.makeText(fragmentActivity, "Filme ${deleteMovie.originalTitle} deletado com sucesso", Toast.LENGTH_SHORT).show()
+                        })
                     }
                 }
             })

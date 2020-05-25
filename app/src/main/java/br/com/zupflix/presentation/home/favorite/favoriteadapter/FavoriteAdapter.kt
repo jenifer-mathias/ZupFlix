@@ -10,8 +10,8 @@ import br.com.zupflix.data.database.model.FavoriteMovies
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class FavoriteAdapter(val favoriteMovies: List<FavoriteMovies>) :
-    RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterViewHolder>() {
+class FavoriteAdapter(
+    val favoriteMovies: List<FavoriteMovies>) : RecyclerView.Adapter<FavoriteAdapter.FavoriteAdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteAdapterViewHolder {
         val itemView =

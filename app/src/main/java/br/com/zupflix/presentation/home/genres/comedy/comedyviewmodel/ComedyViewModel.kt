@@ -18,6 +18,7 @@ import retrofit2.Response
 class ComedyViewModel(application : Application) : AndroidViewModel(application) {
 
     val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val repository = MovieRepository()
     private val favoriteRepository = FavoriteMovieRepository(getApplication())
 
@@ -37,6 +38,7 @@ class ComedyViewModel(application : Application) : AndroidViewModel(application)
                 ) {
                     when {
                         response.isSuccessful -> {
+                            isLoading.value = false
                             response.body()?.let { genreResponse ->
                                 movieLiveData.value = genreResponse.genreResults
                             }
@@ -45,6 +47,7 @@ class ComedyViewModel(application : Application) : AndroidViewModel(application)
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                    isLoading.value = false
                     Log.d(ComedyViewModel::class.java.simpleName, "ERROR: ${t.message}")
                 }
             })

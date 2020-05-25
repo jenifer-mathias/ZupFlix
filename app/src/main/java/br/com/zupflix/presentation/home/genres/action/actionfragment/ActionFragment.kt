@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 
 class ActionFragment : Fragment() {
 
-    var listFavoriteMovie = listOf<FavoriteMovies>()
+    var listFavoriteMovies = listOf<FavoriteMovies>()
 
     lateinit var userEmail: String
 
@@ -38,14 +38,15 @@ class ActionFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         activity?.let { fragmentActivity ->
-        var sharedPreference = SharedPreference(fragmentActivity)
+
+            var sharedPreference = SharedPreference(fragmentActivity)
             sharedPreference.getData("USER")?.let {email ->
              userEmail = email
             }
 
             viewModel.getFavoriteMovie(userEmail).observe(fragmentActivity, Observer {listMovie ->
               listMovie?.let {movies ->
-                  listFavoriteMovie = movies
+                  listFavoriteMovies = movies
               }
             })
 
@@ -62,7 +63,7 @@ class ActionFragment : Fragment() {
                     with(recyclerViewAction) {
                         layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
-                        adapter = ActionAdapter(movieList, listFavoriteMovie, {movie ->
+                        adapter = ActionAdapter(movieList, listFavoriteMovies, {movie ->
                             GlobalScope.launch {
                                 viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
                             }
@@ -77,7 +78,6 @@ class ActionFragment : Fragment() {
                 }
             })
         }
-
         viewModel.getMoviesByGenres(BuildConfig.API_KEY, "pt-BR", false, 28)
     }
 }

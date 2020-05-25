@@ -28,7 +28,8 @@ class ActionAdapter(val movies: List<MovieResults>,
         holder.bind(movies[position], checkedMovie)
     }
 
-    class ActionAdapterViewHolder(itemView: View, private val checkedMovie: List<FavoriteMovies>,
+    class ActionAdapterViewHolder(itemView: View,
+                                  private val checkedMovie: List<FavoriteMovies>,
                                   private val favoriteClickListener: (movie: MovieResults) -> Unit,
                                   private val deleteClickListener: (movie: MovieResults) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
@@ -64,8 +65,8 @@ class ActionAdapter(val movies: List<MovieResults>,
 
             imageViewFavoriteRed.setOnClickListener {
                 deleteClickListener.invoke(movie)
-                imageViewFavoriteRed.visibility = View.GONE
                 imageViewFavoriteMovie.visibility = View.VISIBLE
+                imageViewFavoriteRed.visibility = View.GONE
             }
         }
     }
