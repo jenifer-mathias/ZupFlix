@@ -18,8 +18,7 @@ class HomeActivity : BaseActivity() {
 
     val fragmentAdapter = HomePagerAdapter(supportFragmentManager)
 
-    private val mOnNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.btProfile -> {
                     startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
@@ -35,7 +34,6 @@ class HomeActivity : BaseActivity() {
                 }
                 else -> false
             }
-
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +46,6 @@ class HomeActivity : BaseActivity() {
 
         val bottonNavigation: BottomNavigationView = bottomNavigationView
         bottonNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
     }
 }
 
