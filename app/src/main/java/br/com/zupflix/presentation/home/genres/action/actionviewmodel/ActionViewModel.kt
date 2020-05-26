@@ -29,6 +29,7 @@ class ActionViewModel(application : Application) : AndroidViewModel(application)
     fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteRepository.getFavoriteMovie(userEmail)
 
     fun getMoviesByGenres(apiKey: String, language: String, includeAdult: Boolean, withGenres: Int) {
+        isLoading.value = true
         repository.getMoviesByGenres(apiKey, language, includeAdult, withGenres).enqueue(object : Callback<MovieResponse> {
 
                 override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {

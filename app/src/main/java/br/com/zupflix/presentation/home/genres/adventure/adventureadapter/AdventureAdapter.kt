@@ -19,17 +19,17 @@ class AdventureAdapter(val movies: List<MovieResults>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return AdventureAdapterViewHolder(itemView, checkedMovie, favoriteClickListener, deleteClickListener)
+        return AdventureAdapterViewHolder(itemView, favoriteClickListener, deleteClickListener)
     }
 
     override fun getItemCount() = movies.count()
 
     override fun onBindViewHolder(holder: AdventureAdapterViewHolder, position: Int) {
+        holder.setIsRecyclable(false)
         holder.bind(movies[position], checkedMovie)
     }
 
     class AdventureAdapterViewHolder(itemView: View,
-                                     private val checkedMovie: List<FavoriteMovies>,
                                      private val favoriteClickListener: (movie: MovieResults) -> Unit,
                                      private val deleteClickListener: (movie: MovieResults) -> Unit): RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
@@ -45,10 +45,9 @@ class AdventureAdapter(val movies: List<MovieResults>,
             textVoteAverage.text = movie.voteAverage.toString()
             textReleaseDate.text = movie.releaseDate
 
-            for(i in checkedMovie) {
-                if(i.id.equals(movie.id)) {
-                    imageViewFavoriteMovie.visibility = View.GONE
-                    imageViewFavoriteRed.visibility = View.VISIBLE
+            for (i in checkedMovie) {
+                when {
+                    movie.id.equals(i.id) -> imageViewFavoriteRed.visibility = View.VISIBLE
                 }
             }
 

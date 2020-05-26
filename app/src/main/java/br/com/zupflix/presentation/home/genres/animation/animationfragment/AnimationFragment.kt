@@ -50,14 +50,6 @@ class AnimationFragment : Fragment() {
                 }
             })
 
-            viewModel.isLoading.observe(fragmentActivity, Observer {
-                if (it) {
-                    progressBar.visibility = View.VISIBLE
-                } else {
-                    progressBar.visibility = View.GONE
-                }
-            })
-
             viewModel.movieLiveData.observe(fragmentActivity, Observer {
                 it?.let {movieList ->
                     with(recyclerViewAnimation) {

@@ -65,12 +65,14 @@ class ActionFragment : Fragment() {
                         setHasFixedSize(true)
                         adapter = ActionAdapter(movieList, listFavoriteMovies, {movie ->
                             GlobalScope.launch {
-                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds, movie.overview, movie.posterPath, movie.releaseDate))
+                                viewModel.insertMovie(FavoriteMovies(movie.id, userEmail, movie.originalTitle, movie.voteAverage, movie.genreIds,
+                                    movie.overview, movie.posterPath, movie.releaseDate))
                             }
                             Toast.makeText(fragmentActivity, "Filme ${movie.originalTitle} inserido com sucesso", Toast.LENGTH_SHORT).show()
                         }, {deleteMovie ->
                             GlobalScope.launch {
-                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, userEmail, deleteMovie.originalTitle, deleteMovie.voteAverage, deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
+                                viewModel.deleteMovie(FavoriteMovies(deleteMovie.id, userEmail, deleteMovie.originalTitle, deleteMovie.voteAverage,
+                                    deleteMovie.genreIds, deleteMovie.overview, deleteMovie.posterPath, deleteMovie.releaseDate))
                             }
                             Toast.makeText(fragmentActivity, "Filme ${deleteMovie.originalTitle} deletado com sucesso", Toast.LENGTH_SHORT).show()
                         })

@@ -19,17 +19,17 @@ class ComedyAdapter(val movies: List<MovieResults>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdventureAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return AdventureAdapterViewHolder(itemView, checkedMovie, favoriteClickListener, deleteClickListener)
+        return AdventureAdapterViewHolder(itemView, favoriteClickListener, deleteClickListener)
     }
 
     override fun getItemCount() = movies.count()
 
     override fun onBindViewHolder(holder: AdventureAdapterViewHolder, position: Int) {
+       holder.setIsRecyclable(false)
         holder.bind(movies[position], checkedMovie)
     }
 
     class AdventureAdapterViewHolder(itemView: View,
-                                     private val checkedMovie: List<FavoriteMovies>,
                                      private val favoriteClickListener: (movie: MovieResults) -> Unit,
                                      private val deleteClickListener: (movie: MovieResults) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val textNameMovie = itemView.textNameMovie
@@ -46,9 +46,8 @@ class ComedyAdapter(val movies: List<MovieResults>,
             textReleaseDate.text = movie.releaseDate
 
             for (i in checkedMovie) {
-                if( i.id.equals(movie.id)) {
-                    imageViewFavoriteMovie.visibility = View.GONE
-                    imageViewFavoriteRed.visibility = View.VISIBLE
+                when {
+                    movie.id.equals(i.id) -> imageViewFavoriteRed.visibility = View.VISIBLE
                 }
             }
 
