@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import br.com.zupflix.data.database.model.FavoriteMovies
 import br.com.zupflix.data.response.MovieResponse
 import br.com.zupflix.data.results.MovieResults

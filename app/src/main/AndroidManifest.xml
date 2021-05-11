@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.zupflix">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,18 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presentation.home.favorite.favoriteactivity.FavoriteActivity"
-            android:parentActivityName=".presentation.home.homeactivity.HomeActivity"/>
-
-        <activity android:name=".presentation.register.RegisterActivity"
-            android:parentActivityName=".presentation.login.LoginActivity" />
-
-        <activity android:name=".presentation.login.LoginActivity">
+        <activity android:name=".presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.login.LoginActivity"
+            android:parentActivityName=".presentation.splash.SplashActivity"/>
+
+        <activity android:name=".presentation.home.favorite.favoriteactivity.FavoriteActivity"
+            android:parentActivityName=".presentation.home.homeactivity.HomeActivity"/>
+
+        <activity android:name=".presentation.register.RegisterActivity"
+            android:parentActivityName=".presentation.login.LoginActivity" />
 
         <activity android:name=".presentation.base.BaseActivity" />
 
