@@ -2,7 +2,7 @@ ZUPFLIX is an app to discovery new movies and save your favorite movies!
 
 - Used Api: TMDB API https://www.themoviedb.org/
 
-** Tools and main concepts: 
+Tools and main concepts: 
 
 - MVVM arquitechture;
 - Retrofit;
