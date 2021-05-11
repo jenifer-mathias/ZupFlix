@@ -6,9 +6,11 @@ ZUPFLIX is an app to discovery new movies and save your favorite movies!
 
 - MVVM arquitechture;
 - Retrofit;
+- GSON to convert json in data;
 - Room to abstract the SQLite;
 - Picasso;
 - Kotlin Coroutines;
+- LiveData concept;
 - Koin to DI;
 - Intent to navigation;
 - RecyclerView;
