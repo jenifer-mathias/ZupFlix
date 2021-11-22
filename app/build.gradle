@@ -47,7 +47,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$supportVersion"
     implementation 'com.google.android.material:material:1.1.0'
 
-    //lifecicle
+    //lifecycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha02'
 
