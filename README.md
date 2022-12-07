@@ -9,6 +9,7 @@ Tools and main concepts:
 - GSON to convert json in data;
 - Room to abstract the SQLite;
 - Picasso;
+- Koin;
 - View Binding;
 - Kotlin Coroutines;
 - LiveData concept;
