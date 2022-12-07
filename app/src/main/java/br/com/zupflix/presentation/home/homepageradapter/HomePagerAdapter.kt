@@ -7,6 +7,10 @@ import br.com.zupflix.presentation.home.genres.action.actionfragment.ActionFragm
 import br.com.zupflix.presentation.home.genres.adventure.adventurefragment.AdventureFragment
 import br.com.zupflix.presentation.home.genres.animation.animationfragment.AnimationFragment
 import br.com.zupflix.presentation.home.genres.comedy.comedyfragment.ComedyFragment
+import br.com.zupflix.utils.Constants.ACTION
+import br.com.zupflix.utils.Constants.ADVENTURE
+import br.com.zupflix.utils.Constants.ANIMATION
+import br.com.zupflix.utils.Constants.COMEDY
 
 class HomePagerAdapter(fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -28,11 +32,11 @@ class HomePagerAdapter(fm: FragmentManager) :
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position){
-            0 -> "Ação"
-            1 -> "Aventura"
-            2 -> "Animação"
-            3 -> "Comédia"
+        return when (position) {
+            0 -> ACTION
+            1 -> ADVENTURE
+            2 -> ANIMATION
+            3 -> COMEDY
             else -> null
         }
     }

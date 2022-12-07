@@ -2,9 +2,9 @@ package br.com.zupflix.presentation.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import br.com.zupflix.data.database.ZupFlixDB
 import br.com.zupflix.data.database.model.FavoriteMovieDAO
 import br.com.zupflix.data.database.model.FavoriteMovies
-import br.com.zupflix.data.database.ZupFlixDB
 
 class FavoriteMovieRepository(context: Context) {
 
@@ -16,7 +16,8 @@ class FavoriteMovieRepository(context: Context) {
         favoriteMovieDAO.insertMovie(favoriteMovies)
     }
 
-    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteMovieDAO.getFavoriteMovie(userEmail)
+    fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovies>> =
+        favoriteMovieDAO.getFavoriteMovie(userEmail)
 
     suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies) {
         favoriteMovieDAO.deleteFavoriteMovie(favoriteMovies)

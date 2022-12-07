@@ -10,17 +10,21 @@ import retrofit2.http.Query
 interface Services {
 
     @GET("discover/movie")
-    fun getMoviesByGenres(@Query("api_key") apiKey: String,
-                          @Query("language") language: String,
-                          @Query("include_adult") includeAdult: Boolean,
-                          @Query("with_genres") withGenres: Int): Call<MovieResponse>
+    fun getMoviesByGenres(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("include_adult") includeAdult: Boolean,
+        @Query("with_genres") withGenres: Int
+    ): Call<MovieResponse>
 
 
     @GET("search/movie")
-    fun searchMovies(@Query("query") query: String,
-                     @Query("api_key") apiKey: String,
-                     @Query("language") language: String,
-                     @Query("include_adult") includeAdult: Boolean): Call<SearchMovieResponse>
+    fun searchMovies(
+        @Query("query") query: String,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("include_adult") includeAdult: Boolean
+    ): Call<SearchMovieResponse>
 
 }
 

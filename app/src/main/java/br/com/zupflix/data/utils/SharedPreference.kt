@@ -2,11 +2,11 @@ package br.com.zupflix.data.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import br.com.zupflix.utils.Constants.USER
 
 class SharedPreference(val context: Context) {
-    private val USER = "USER"
 
-   val sharedPref = context.getSharedPreferences(USER, Context.MODE_PRIVATE)
+    val sharedPref = context.getSharedPreferences(USER, Context.MODE_PRIVATE)
 
     fun getData(USER: String): String? {
         return sharedPref.getString(USER, "")

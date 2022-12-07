@@ -24,14 +24,14 @@ abstract class ZupFlixDB : RoomDatabase() {
         @Volatile
         private var INSTANCE: ZupFlixDB? = null
 
-        val MIGRATION_1_2 : Migration = object : Migration(1, 2) {
+        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-               // database.execSQL("create table favorite_movie"()) como não alteramos a tabela, não precisamos adicionar nada
+                // database.execSQL("create table favorite_movie"()) como não alteramos a tabela, não precisamos adicionar nada
             }
 
         }
 
-        fun getDataBase(context: Context) : ZupFlixDB {
+        fun getDataBase(context: Context): ZupFlixDB {
             val tempInstance =
                 INSTANCE
             if (tempInstance != null) {
@@ -42,7 +42,8 @@ abstract class ZupFlixDB : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     ZupFlixDB::class.java,
-                    "zupflix_db")
+                    "zupflix_db"
+                )
                     .addMigrations(MIGRATION_1_2)
                     .build()
 

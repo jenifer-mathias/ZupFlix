@@ -10,8 +10,8 @@ interface FavoriteMovieDAO {
     suspend fun insertMovie(favoriteMovies: FavoriteMovies)
 
     @Query("SELECT * FROM favorite_movie WHERE user_email = :userEmail")
-    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>>
+    fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovies>>
 
     @Delete
-     suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies)
+    suspend fun deleteFavoriteMovie(favoriteMovies: FavoriteMovies)
 }
