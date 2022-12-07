@@ -8,6 +8,7 @@
     tools:context=".presentation.home.homeactivity.HomeActivity">
 
     <include
+        android:id="@+id/toolbarMovie"
         layout="@layout/toolbar"
         app:layout_constraintBottom_toTopOf="@+id/viewPagerMain"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +43,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/botton_nav_menu" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

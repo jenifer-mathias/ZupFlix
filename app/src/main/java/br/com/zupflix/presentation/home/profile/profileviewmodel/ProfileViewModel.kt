@@ -10,6 +10,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     private val repository = UserRepository(getApplication())
 
-    fun getUserByEmail(email: String) : LiveData<User> = repository.getUserByEmail(email)
+    fun getUserByEmail(email: String): LiveData<User> = repository.getUserByEmail(email)
 
 }

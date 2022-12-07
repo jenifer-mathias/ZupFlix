@@ -11,7 +11,6 @@ Tools and main concepts:
 - Picasso;
 - Kotlin Coroutines;
 - LiveData concept;
-- Koin to DI;
 - Intent to navigation;
 - RecyclerView;
 - Migration and converters concept in DB;

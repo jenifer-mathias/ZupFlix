@@ -1,11 +1,12 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "br.com.zupflix"
@@ -21,6 +22,10 @@ android {
         buildConfigField "String", "BASE_URL_IMAGE", "\"https://image.tmdb.org/t/p/w500/\""
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,7 +36,7 @@ android {
 
 ext {
     retrofitVersion = "2.6.0"
-    gsonVersion = "2.8.6"
+    gsonVersion = "2.8.9"
     supportVersion = "28.0.0"
     roomVersion = "2.2.5"
 }
@@ -41,6 +46,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
 
     //layout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

@@ -8,6 +8,7 @@
     tools:context=".presentation.home.favorite.favoriteactivity.FavoriteActivity">
 
     <include
+        android:id="@+id/toolbarFavoriteMovie"
         layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +23,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMovie" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarFavoriteMovie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
