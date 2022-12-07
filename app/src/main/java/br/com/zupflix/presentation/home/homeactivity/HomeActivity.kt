@@ -2,23 +2,24 @@ package br.com.zupflix.presentation.home.homeactivity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
 import br.com.zupflix.R
+import br.com.zupflix.databinding.ActivityHomeBinding
 import br.com.zupflix.presentation.base.BaseActivity
 import br.com.zupflix.presentation.home.favorite.favoriteactivity.FavoriteActivity
 import br.com.zupflix.presentation.home.homepageradapter.HomePagerAdapter
 import br.com.zupflix.presentation.home.profile.profileactivity.ProfileActivity
 import br.com.zupflix.presentation.home.search.searchactivity.SearchActivity
+import br.com.zupflix.utils.viewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.toolbar.*
 
 class HomeActivity : BaseActivity() {
 
-    val fragmentAdapter = HomePagerAdapter(supportFragmentManager)
+    private val binding by viewBinding(ActivityHomeBinding::inflate)
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    private val fragmentAdapter = HomePagerAdapter(supportFragmentManager)
+
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.btProfile -> {
                     startActivity(Intent(this@HomeActivity, ProfileActivity::class.java))
@@ -38,14 +39,14 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        setupToolbar(toolbarMovie, R.string.txt_toolbar_name, false)
+        setContentView(binding.root)
+        setupToolbar(binding.toolbarMovie.toolbar, R.string.txt_toolbar_name, false)
 
-        viewPagerMain.adapter = fragmentAdapter
-        tabsMain.setupWithViewPager(viewPagerMain)
+        binding.viewPagerMain.adapter = fragmentAdapter
+        binding.tabsMain.setupWithViewPager(binding.viewPagerMain)
 
-        val bottonNavigation: BottomNavigationView = bottomNavigationView
-        bottonNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        val bottomNavigation: BottomNavigationView = binding.bottomNavigationView
+        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }
 

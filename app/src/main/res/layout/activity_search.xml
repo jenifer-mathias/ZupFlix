@@ -8,6 +8,7 @@
     tools:context=".presentation.home.homeactivity.HomeActivity">
 
     <include
+        android:id="@+id/toolbarMovie"
         layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

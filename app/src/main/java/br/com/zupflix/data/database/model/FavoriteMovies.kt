@@ -4,11 +4,11 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "favorite_movie")
 @Parcelize
-data class FavoriteMovies (
+data class FavoriteMovies(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int,

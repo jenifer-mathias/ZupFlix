@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 open class BaseActivity : AppCompatActivity() {
 
-    protected fun setupToolbar(toolbar: androidx.appcompat.widget.Toolbar, title: Int, showBackButton: Boolean = false) {
+    protected fun setupToolbar(
+        toolbar: androidx.appcompat.widget.Toolbar,
+        title: Int,
+        showBackButton: Boolean = false
+    ) {
 
         toolbar.title = getString(title)
 

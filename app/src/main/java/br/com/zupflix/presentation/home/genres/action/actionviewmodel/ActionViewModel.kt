@@ -10,28 +10,41 @@ import br.com.zupflix.data.response.MovieResponse
 import br.com.zupflix.data.results.MovieResults
 import br.com.zupflix.presentation.repository.FavoriteMovieRepository
 import br.com.zupflix.presentation.repository.MovieRepository
+import br.com.zupflix.utils.Constants.ERROR_MESSAGE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ActionViewModel(application : Application) : AndroidViewModel(application) {
+class ActionViewModel(application: Application) : AndroidViewModel(application) {
 
     val movieLiveData: MutableLiveData<List<MovieResults>> = MutableLiveData()
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val repository = MovieRepository()
     private val favoriteRepository = FavoriteMovieRepository(getApplication())
 
-    suspend fun insertMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.insertMovie(favoriteMovies)
+    suspend fun insertMovie(favoriteMovies: FavoriteMovies) =
+        favoriteRepository.insertMovie(favoriteMovies)
 
-    suspend fun deleteMovie(favoriteMovies: FavoriteMovies) = favoriteRepository.deleteFavoriteMovie(favoriteMovies)
+    suspend fun deleteMovie(favoriteMovies: FavoriteMovies) =
+        favoriteRepository.deleteFavoriteMovie(favoriteMovies)
 
-    fun getFavoriteMovie(userEmail: String) : LiveData<List<FavoriteMovies>> = favoriteRepository.getFavoriteMovie(userEmail)
+    fun getFavoriteMovie(userEmail: String): LiveData<List<FavoriteMovies>> =
+        favoriteRepository.getFavoriteMovie(userEmail)
 
-    fun getMoviesByGenres(apiKey: String, language: String, includeAdult: Boolean, withGenres: Int) {
+    fun getMoviesByGenres(
+        apiKey: String,
+        language: String,
+        includeAdult: Boolean,
+        withGenres: Int
+    ) {
         isLoading.value = true
-        repository.getMoviesByGenres(apiKey, language, includeAdult, withGenres).enqueue(object : Callback<MovieResponse> {
+        repository.getMoviesByGenres(apiKey, language, includeAdult, withGenres)
+            .enqueue(object : Callback<MovieResponse> {
 
-                override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
+                override fun onResponse(
+                    call: Call<MovieResponse>,
+                    response: Response<MovieResponse>
+                ) {
                     when {
                         response.isSuccessful -> {
                             isLoading.value = false
@@ -44,7 +57,10 @@ class ActionViewModel(application : Application) : AndroidViewModel(application)
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     isLoading.value = false
-                    Log.d(ActionViewModel::class.java.simpleName, "ERROR: ${t.message}")
+                    Log.d(
+                        ActionViewModel::class.java.simpleName,
+                        ERROR_MESSAGE.plus(t.message)
+                    )
                 }
             })
     }
